@@ -19,6 +19,14 @@ class _3RreEB(object):
         else:
             return "Wrong Mode"
 
+    def Draw(self, tree):
+        if self.__State == 0:
+            for line in tree:
+                for sentence in line:
+                    sentence.draw()
+        else:
+            return "Wrong Mode"
+
     def Tag(self, text):
         if self.__State == 1:
             self.__text = text
