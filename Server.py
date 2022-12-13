@@ -3,7 +3,6 @@ from nltk import CoreNLPParser
 class _3RreEB(object):
     def __init__(self, Path, State):
         self.__Path = Path
-        #self.__stf _parser = CoreNLPParser(Path)
         self.__State = State
         match self.__State:
             case 0:
@@ -20,7 +19,7 @@ class _3RreEB(object):
         else:
             return "Wrong Mode"
 
-    def Tag(self,text):
+    def Tag(self, text):
         if self.__State == 1:
             self.__text = text
             return list(self.__stf_parser.tag(self.__stf_parser.tokenize(text)))
