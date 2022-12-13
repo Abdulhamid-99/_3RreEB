@@ -35,8 +35,8 @@ class _3RreEB(object):
     def Tag(self, text):
         if self.__State == 1:
             self.__text = text
-            for line in list(self.__stf_parser.tag(self.__stf_parser.tokenize(text))):
-                print(line)
-            #return list(self.__stf_parser.tag(self.__stf_parser.tokenize(text)))
+            #for line in list(self.__stf_parser.tag(self.__stf_parser.tokenize(text))):
+            #    print(line)"""
+            return list(self.__stf_parser.tag(self.__stf_parser.tokenize(text)))
         else:
             return "Wrong Mode"
