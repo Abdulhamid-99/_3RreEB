@@ -19,9 +19,14 @@ class _3RreEB(object):
         else:
             return "Wrong Mode"
 
-    def Draw(self, tree):
+    def Draw(self, text):
         if self.__State == 0:
-            for line in tree:
+            self.__text = text
+            Tree = self.Parse(text)
+            for line in Tree:
+                for sentence in line:
+                    print(sentence)
+            for line in Tree:
                 for sentence in line:
                     sentence.draw()
         else:
@@ -30,6 +35,8 @@ class _3RreEB(object):
     def Tag(self, text):
         if self.__State == 1:
             self.__text = text
-            return list(self.__stf_parser.tag(self.__stf_parser.tokenize(text)))
+            for line in list(self.__stf_parser.tag(self.__stf_parser.tokenize(text))):
+                print(line)
+            #return list(self.__stf_parser.tag(self.__stf_parser.tokenize(text)))
         else:
             return "Wrong Mode"
