@@ -25,10 +25,12 @@ class _3RreEB(object):
             Tree = self.Parse(text)
             for line in Tree:
                 for sentence in line:
-                    print(sentence)
+                    print(type(sentence))
+                    return sentence
+            """
             for line in Tree:
                 for sentence in line:
-                    sentence.draw()
+                    sentence.draw()"""
         else:
             return "Wrong Mode"
 
