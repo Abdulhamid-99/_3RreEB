@@ -13,7 +13,8 @@ print("مرحباً بكم في عرّيب لتشكيل الكلمات بناء�
 print("-------------------------------------------------")
 while(True):
     text = input("فضلاً ادخل النص المراد إعرابه وتشكيله: ")
-
+    if text == "0":
+        break
     #Tagger = Server._3RreEB("http://139.59.210.136:9005",1)
     #Parsed_Text = Tagger.Tag(text)
     #print(Parsed_Text)
@@ -62,7 +63,7 @@ while(True):
             print("تم التعرف على الجملة")
             for index, value in enumerate(val):
                 for k, v in value.items():
-                    print(len(v))
+                    #print(len(v))
                     if k == "VP":
                         #print(k)
                         print("جملة فعلية")
@@ -340,7 +341,7 @@ while(True):
 
     print(" ".join(result))
 
-    print(TreeType)
+    #print(TreeType)
 #print(extract_values(TreeType))
 """
 for key, value in TreeType.items():
