@@ -25,7 +25,7 @@ class _3RreEB(object):
             Tree = self.Parse(text)
             for line in Tree:
                 for sentence in line:
-                    print(type(sentence))
+                    #print(type(sentence))
                     return sentence
             """
             for line in Tree:
