@@ -110,6 +110,7 @@ while(True):
                                         if len(v) < 3:
                                             print("فاعل: ", end="")
                                             print("ضمير متصل")
+                                            result[-1] = result[-1][:-1]
                                             print("مفعول به: ", end="")
                                             if isinstance(v1, str):
                                                 if v1[:2] == "ال":
@@ -154,12 +155,13 @@ while(True):
                                                                         print(v7[0])
                                                                 if v6[:2] == "ال":
                                                                     result.append(v6 + hrkat["fatha"])
-                                                                    print(v)
+                                                                    print(v6)
 
                                                                 else:
                                                                     result.append(v6 + hrkat["fathatan"])
+                                                                    print(v6)
                                                                 # result.append(v3[0] + hrkat["fatha"])
-                                                                print(v6)
+
                                                         else:
                                                             if v5[0][:2] == "ال":
                                                                 result.append(v5[0] + hrkat["fatha"])
@@ -209,44 +211,47 @@ while(True):
                                                     if isinstance(v2, str):
                                                         if v2[:2] == "ال":
                                                             result.append(v2 + hrkat["fatha"])
-                                                            #print(v)
+                                                            print(v2)
 
                                                         else:
                                                             result.append(v2 + hrkat["fathatan"])
-                                                            #print(v2)
+                                                            print(v2)
                                                         #result.append(v2 + hrkat["fatha"])
-                                                        print(v2)
+                                                        #print(v2)
                                                     elif isinstance(v2, dict):
                                                         for k3, v3 in v2.items():
                                                             if isinstance(v3, str):
                                                                 if v3[:2] == "ال":
                                                                     result.append(v3 + hrkat["fatha"])
-                                                                    # print(v)
+                                                                    print(v3)
 
                                                                 else:
                                                                     result.append(v3 + hrkat["fathatan"])
+                                                                    print(v3)
                                                                 # result.append(v3[0] + hrkat["fatha"])
-                                                                print(v3[0])
+
                                                             elif isinstance(v3, dict):
                                                                 for k4, v4 in v3.items():
                                                                     if v4[0][:2] == "ال":
                                                                         result.append(v4[0] + hrkat["fatha"])
-                                                                        print(v)
+                                                                        print(v4[0])
 
                                                                     else:
                                                                         result.append(v4[0] + hrkat["fathatan"])
+                                                                        print(v4[0])
                                                                     # result.append(v3[0] + hrkat["fatha"])
-                                                                    print(v4[0])
+
                                                             elif isinstance(v3, list):
                                                                 for k4, v4 in enumerate(v3):
                                                                     if v4[:2] == "ال":
                                                                         result.append(v4 + hrkat["fatha"])
-                                                                        print(v)
+                                                                        print(v4)
 
                                                                     else:
                                                                         result.append(v4 + hrkat["fathatan"])
+                                                                        print(v4)
                                                                     # result.append(v3[0] + hrkat["fatha"])
-                                                                    print(v4)
+
                                                 counter += 1
                                         break
 
@@ -254,6 +259,7 @@ while(True):
                                         if len(v) < 3:
                                             print("فاعل: ", end="")
                                             print("ضمير متصل")
+                                            result[-1] = result[-1][:-1]
                                             jr = True
                                             print("حرف جر: ", end="")
                                             for i2, v2 in enumerate(v1):
