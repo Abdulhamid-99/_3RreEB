@@ -15,7 +15,7 @@ while(True):
     text = input("فضلاً ادخل النص المراد إعرابه وتشكيله: ")
     if text == "0":
         break
-    #Tagger = Server._3RreEB("http://139.59.210.136:9005",1)
+    #Tagger = Server._3RreEB("http://139.59.210.136:9005",1)3RreEB3RreEB
     #Parsed_Text = Tagger.Tag(text)
     #print(Parsed_Text)
 
@@ -63,9 +63,9 @@ while(True):
             print("تم التعرف على الجملة")
             for index, value in enumerate(val):
                 for k, v in value.items():
-                    #print(len(v))
+                    print(len(v))
                     if k == "VP":
-                        #print(k)
+                        print(k)
                         print("جملة فعلية")
                         for word in v:
                             if isinstance(word, dict):
@@ -104,9 +104,9 @@ while(True):
                                                 for k3, v3 in v2.items():
                                                     result.append(v3[0])
                                                     print(v3[0])
-                                        counter+=1
+                                        counter += 1
                                         break
-                                    elif k1 == "NP" :
+                                    elif k1 == "NP":
                                         if len(v) < 3:
                                             print("فاعل: ", end="")
                                             print("ضمير متصل")
@@ -114,18 +114,21 @@ while(True):
                                             if isinstance(v1, str):
                                                 if v1[:2] == "ال":
                                                     result.append(v1 + hrkat["fatha"])
-                                                    # print(v)
+                                                    print(v1)
 
                                                 else:
                                                     result.append(v1 + hrkat["fathatan"])
-                                                    # print(v2)
+                                                    print(v1)
                                                 # result.append(v2 + hrkat["fatha"])
                                                 print(v1)
                                             elif isinstance(v1, dict):
                                                 for k3, v3 in v1.items():
-                                                    if v3[0][:2] == "ال":
+                                                    if k3 == "NN":
+                                                        print("somthing wrong")
+                                                        exit()
+                                                    elif v3[0][:2] == "ال":
                                                         result.append(v3[0] + hrkat["fatha"])
-                                                        # print(v)
+                                                        print(v3)
 
                                                     else:
                                                         result.append(v3[0] + hrkat["fathatan"])
@@ -134,14 +137,38 @@ while(True):
                                             elif isinstance(v1, list):
                                                 for k4, v4 in enumerate(v1):
                                                     for k5, v5 in v4.items():
-                                                        if v5[0][:2] == "ال":
-                                                            result.append(v5[0] + hrkat["fatha"])
-                                                            # print(v)
+                                                        if k5 == "NN":
+                                                            print("خطأ في الجملة سيتم الخروج من عرّيب")
+                                                            exit()
+                                                        if isinstance(v5, list):
+                                                            for k6, v6 in enumerate(v5):
+                                                                if isinstance(v6, dict):
+                                                                    for k7, v7 in v6.items():
+                                                                        if v7[0][:2] == "ال":
+                                                                            result.append(v7[0] + hrkat["fatha"])
+                                                                            print(v)
 
+                                                                        else:
+                                                                            result.append(v7[0] + hrkat["fathatan"])
+                                                                        # result.append(v3[0] + hrkat["fatha"])
+                                                                        print(v7[0])
+                                                                if v6[:2] == "ال":
+                                                                    result.append(v6 + hrkat["fatha"])
+                                                                    print(v)
+
+                                                                else:
+                                                                    result.append(v6 + hrkat["fathatan"])
+                                                                # result.append(v3[0] + hrkat["fatha"])
+                                                                print(v6)
                                                         else:
-                                                            result.append(v5[0] + hrkat["fathatan"])
-                                                        #result.append(v5[0] + hrkat["fatha"])
-                                                        print(v5[0])
+                                                            if v5[0][:2] == "ال":
+                                                                result.append(v5[0] + hrkat["fatha"])
+                                                                # print(v)
+
+                                                            else:
+                                                                result.append(v5[0] + hrkat["fathatan"])
+                                                            #result.append(v5[0] + hrkat["fatha"])
+                                                            print(v5[0])
                                             break
                                         else:
                                             for v2 in v1:
@@ -191,14 +218,35 @@ while(True):
                                                         print(v2)
                                                     elif isinstance(v2, dict):
                                                         for k3, v3 in v2.items():
-                                                            if v3[0][:2] == "ال":
-                                                                result.append(v3[0] + hrkat["fatha"])
-                                                                # print(v)
+                                                            if isinstance(v3, str):
+                                                                if v3[:2] == "ال":
+                                                                    result.append(v3 + hrkat["fatha"])
+                                                                    # print(v)
 
-                                                            else:
-                                                                result.append(v3[0] + hrkat["fathatan"])
-                                                            #result.append(v3[0] + hrkat["fatha"])
-                                                            print(v3[0])
+                                                                else:
+                                                                    result.append(v3 + hrkat["fathatan"])
+                                                                # result.append(v3[0] + hrkat["fatha"])
+                                                                print(v3[0])
+                                                            elif isinstance(v3, dict):
+                                                                for k4, v4 in v3.items():
+                                                                    if v4[0][:2] == "ال":
+                                                                        result.append(v4[0] + hrkat["fatha"])
+                                                                        print(v)
+
+                                                                    else:
+                                                                        result.append(v4[0] + hrkat["fathatan"])
+                                                                    # result.append(v3[0] + hrkat["fatha"])
+                                                                    print(v4[0])
+                                                            elif isinstance(v3, list):
+                                                                for k4, v4 in enumerate(v3):
+                                                                    if v4[:2] == "ال":
+                                                                        result.append(v4 + hrkat["fatha"])
+                                                                        print(v)
+
+                                                                    else:
+                                                                        result.append(v4 + hrkat["fathatan"])
+                                                                    # result.append(v3[0] + hrkat["fatha"])
+                                                                    print(v4)
                                                 counter += 1
                                         break
 
@@ -341,7 +389,7 @@ while(True):
 
     print(" ".join(result))
 
-    #print(TreeType)
+    print(TreeType)
 #print(extract_values(TreeType))
 """
 for key, value in TreeType.items():
