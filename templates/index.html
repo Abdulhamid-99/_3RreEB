@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>3RreEB</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto auto;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    input[type="text"] {
+      width: 98%;
+      padding: 10px;
+      font-size: 18px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>3RreEB</h1>
+    <form action="/" method="post">
+      <input type="text" name="text" placeholder="فضلاً ادخل النص المراد إعرابه وتشكيله..." style="direction: rtl;" required>
+      <input type="submit" value="شكّل">
+    </form>
+    {% if parsed_sentences %}
+    {% for sentence in parsed_sentences %}
+      {% for s in sentence %}
+      <h1>{{ s }}</h1>
+      {% endfor %}
+    {% endfor %}
+    {% endif %}
+  </div>
+</body>
+
+</html>
